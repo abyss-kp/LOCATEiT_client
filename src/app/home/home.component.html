@@ -1,3 +1,17 @@
-<p>
-  home works!
-</p>
+<app-header></app-header>
+<h1>welcome</h1>
+<p>this is lost and found portal</p> 
+<!-- {{if user}} -->
+
+<!-- {{else }} -->
+<div class="main"> 
+<span *ngIf="!show">
+<a class="btn red darken-1" (click)="googleSignIn()">
+  <i class="fa fa-google left"></i>
+  Login with google</a>
+
+</span>
+<button mz-button class="kp">
+  button
+</button>
+</div>

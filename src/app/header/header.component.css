@@ -1,0 +1,38 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+.lst {
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    /* padding-top: 1%; */
+}
+.lst a {
+    /* padding: 5% 5% 5% 10%; */
+    text-decoration: none;
+    font-size: 90%;
+    color: #818181;
+    /* display: inline;
+    text-align:center */
+    /* float: left; */
+    display: block;
+}
+.lst a:hover {
+    color: #f1f1f1;
+}
+.lst .closebtn {
+    position: relative;
+    top: 0;
+    left:90%;
+    font-size: 200%;
+    margin-left:90%;
+  
+}
+/* @media screen and (max-height: 450px) {
+    .lst {padding-top: 15px;}
+    .lst a {font-size: 18px;}
+} */
