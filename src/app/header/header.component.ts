@@ -13,10 +13,9 @@ export class HeaderComponent implements OnInit {
    }
  
    ngOnInit() {
-    console.log("init ",this.csin.isloggenIn)
    }
 
-   ngOnChanges(){
+   /* ngOnChanges(){
     console.log(" changes",this.csin.isloggenIn)
    }
 
@@ -35,11 +34,11 @@ ngAfterViewInit(){
 }
 ngAfterViewChecked(){
   console.log("ngAfterViewChecked ",this.csin.isloggenIn)
-}
-   private _opened: boolean = false;
+} */
+   _opened: boolean = false;
    
  
-   private _toggleSidebar() {
+   _toggleSidebar() {
      this._opened = !this._opened;
    }  
    logout(){
