@@ -39,7 +39,7 @@
     <!-- {{#if user}} -->
    <span *ngIf="show">
       <li><a href="/dashbord">Welcome {{username}}</a></li>
-      <li><a href="/auth/logout">
+      <li><a (click)='logout()'>
           <i class="fa fa-sign-out"></i>
           LogOut</a></li>
    </span>

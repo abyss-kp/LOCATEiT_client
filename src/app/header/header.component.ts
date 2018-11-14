@@ -7,34 +7,28 @@ import { Common } from '../commonservice';
 })
 export class HeaderComponent implements OnInit {
   show=false;
-  username=this.csin.googleName
- loc=localStorage.getItem('loggedIn')
+  username
+ //loc=localStorage.getItem('loggedIn')
    constructor(private csin:Common) { 
+   // this.show=this.csin.isloggenIn;
+   // console.log(this.csin.isloggenIn, this.show)
+   if (localStorage.getItem('loggedIn')=="true") {
+    this.show = true;
+    this.username=localStorage.getItem('name')
+  } 
    }
  
    ngOnInit() {
+     //this.show=this.csin.isloggenIn;
+     this.csin.newGoogleData.subscribe(
+       data=>{
+         console.log(data)
+         this.show=true
+         this.username=data.name;
+       }
+     )
    }
 
-   /* ngOnChanges(){
-    console.log(" changes",this.csin.isloggenIn)
-   }
-
-ngDoCheck(){
-  console.log("ngDoCheck ",this.csin.isloggenIn)
-}
-ngAfterContentInit(){
-  console.log("ngAfterContentInit ",this.csin.isloggenIn)
-}
-ngAfterContentChecked(){
-  console.log("ngAfterContentChecked ",this.csin.isloggenIn)
-}
-ngAfterViewInit(){
-  console.log(" ngAfterViewInit",this.csin.isloggenIn)
-
-}
-ngAfterViewChecked(){
-  console.log("ngAfterViewChecked ",this.csin.isloggenIn)
-} */
    _opened: boolean = false;
    
  
@@ -44,7 +38,13 @@ ngAfterViewChecked(){
    logout(){
      localStorage.removeItem('ID');
      localStorage.removeItem('access_token')
+     localStorage.removeItem('loggedIn')
+     localStorage.removeItem('name')
      this.csin.isloggenIn=false;
      this.show=false;
+     this.refresh();
    }
+   refresh(): void {
+    window.location.reload();
+}
  }

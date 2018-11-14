@@ -11,9 +11,9 @@ export class HomeComponent implements OnInit {
 
   show = this.cs.isloggenIn;
   constructor( private cs: Common, private socialAuthService: AuthService) {
-    /* if (this.cs.id == localStorage.getItem('ID')) {
+     if (localStorage.getItem('loggedIn')=="true") {
       this.show = true;
-    } */
+    } 
   }
 
   ngOnInit() {
@@ -39,16 +39,11 @@ export class HomeComponent implements OnInit {
        localStorage.setItem('ID',userData.id);
        localStorage.setItem('access_token',userData.token);
        localStorage.setItem('loggedIn',"true");
-       this.cs.googleID= localStorage.getItem('ID')
-       this.cs.isloggenIn=true;
+       localStorage.setItem('name',userData.name);
+    //   this.cs.googleID= localStorage.getItem('ID')
+    //   this.cs.isloggenIn=true;
        this.show=true
-       if( this.cs.googleID==localStorage.getItem('ID'))
-       {
-        console.log('yeaaa');
-       }
-       else{
-        console.log('naaah')
-       }
+        this.cs.updateData(userData)
       // this.refresh()
       }
     );
