@@ -16,12 +16,12 @@
                   <i class="fa fa-google left"></i>
                   Login with google</a></li>
             </span><br>
-            <li><a href='/posts'><i class="fa fa-book">
+            <li><a routerLink='/posts'><i class="fa fa-book">
                 </i>Public Posts </a></li>
                 <span *ngIf="show">
-            <li><a href='/dashbord'><i class="fa fa-cog">
+            <li><a routerLink='/dashbord'><i class="fa fa-cog">
                 </i>Dashbord </a></li>
-            <li><a href='/posts/my'><i class="fa fa-user">
+            <li><a routerLink='/posts/my'><i class="fa fa-user">
                 </i>My Posts </a></li>
             <li><a (click)='logout()'><i class="fa fa-sign-out">
                 </i>LogOut </a></li>
@@ -31,7 +31,7 @@
         </ng-sidebar>
 <!-- <a>kapil</a> -->
         <div ng-sidebar-content>
-          <a class="button-collapse show-on-large" data-activates="main-menu" href="#" (click)="_toggleSidebar()">
+          <a class="button-collapse show-on-large" data-activates="main-menu"  (click)="_toggleSidebar()">
             <i class="fa fa-bars"></i>
           </a>
           <!-- RIGHT NAV -->

@@ -43,6 +43,7 @@ export class HomeComponent implements OnInit {
     //   this.cs.googleID= localStorage.getItem('ID')
     //   this.cs.isloggenIn=true;
        this.show=true
+       this.cs.isloggenIn=true
         this.cs.updateData(userData)
       // this.refresh()
       }

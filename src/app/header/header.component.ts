@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Common } from '../commonservice';
+import { Router } from '@angular/router'
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,7 +10,7 @@ export class HeaderComponent implements OnInit {
   show=false;
   username
  //loc=localStorage.getItem('loggedIn')
-   constructor(private csin:Common) { 
+   constructor(private csin:Common,private router: Router) { 
    // this.show=this.csin.isloggenIn;
    // console.log(this.csin.isloggenIn, this.show)
    if (localStorage.getItem('loggedIn')=="true") {
@@ -42,6 +43,7 @@ export class HeaderComponent implements OnInit {
      localStorage.removeItem('name')
      this.csin.isloggenIn=false;
      this.show=false;
+     this.router.navigate([]);
      this.refresh();
    }
    refresh(): void {

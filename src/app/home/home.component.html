@@ -1,17 +1,20 @@
 <app-header></app-header>
-<h1>welcome</h1>
-<p>this is lost and found portal</p> 
+<!-- <h1>welcome</h1>
+<p>this is lost and found portal</p>  -->
 <!-- {{if user}} -->
 
 <!-- {{else }} -->
 <div class="main"> 
+  <div class='bdy'>
 <span *ngIf="!show">
 <a class="btn red darken-1" (click)="googleSignIn()">
   <i class="fa fa-google left"></i>
   Login with google</a>
 
 </span>
-<button mz-button class="kp">
+<!-- <button mz-button class="kp">
   button
-</button>
+</button> -->
 </div>
+</div>
+<app-footer></app-footer>

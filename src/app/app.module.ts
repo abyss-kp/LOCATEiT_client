@@ -8,11 +8,27 @@ import { FormsModule } from '@angular/forms'
 import { MzButtonModule ,MzInputModule,MzSidenavModule } from 'ngx-materialize'
 import { Common} from "./commonservice";
 import { SidebarModule } from 'ng-sidebar';
-import {SocialLoginModule,AuthServiceConfig ,GoogleLoginProvider, } from 'angular-6-social-login'
+import {SocialLoginModule,AuthServiceConfig ,GoogleLoginProvider, } from 'angular-6-social-login';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PostsComponent } from './posts/posts.component';
+import { ShowComponent } from './show/show.component';
+import { AddComponent } from './add/add.component';
+import { EditComponent } from './edit/edit.component';
+import { FooterComponent } from './footer/footer.component'
+import { DashGuardGuard } from './dash-guard.guard'
+
+
 //import * as $ from 'jquery';
+
+
 const routes:Routes=[
-{path:'' ,component:HomeComponent}
+{path:'' ,component:HomeComponent},
+{path : "dashbord" , component:DashboardComponent, canActivate:[DashGuardGuard ]},
+{path :'posts',component:PostsComponent}
 ]
+
+
+
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
       [
@@ -28,7 +44,13 @@ export function getAuthServiceConfigs() {
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    DashboardComponent,
+    PostsComponent,
+    ShowComponent,
+    AddComponent,
+    EditComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,RouterModule.forRoot(routes),MzButtonModule, MzInputModule,

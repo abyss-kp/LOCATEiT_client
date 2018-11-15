@@ -15,6 +15,7 @@ constructor(){ }
     token
     isloggenIn=false;
     updateData(data){
+      this.isloggenIn=true;
       this.newGoogleData.next(data)
     }
 }
