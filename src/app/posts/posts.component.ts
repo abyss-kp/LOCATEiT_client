@@ -9,7 +9,7 @@ export class PostsComponent implements OnInit {
 postArray=[];
   constructor(private http:HttpClient) {
     
-    this.http.post("https://locate-it-client1.herokuapp.com/find/posts",{})
+    this.http.post("https://locate-it-server.herokuapp.com/find/posts",{})
     .subscribe((res)=>{
 console.log("done",res["data"]);
 var json=res['data']

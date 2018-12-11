@@ -17,7 +17,7 @@ export class AddComponent implements OnInit {
  
   console.log("click")
   var stripedHtml = this.editorValue.replace(/<[^>]+>/g, '');
-  this.http1.post("https://locate-it-client1.herokuapp.com/posts/add",{
+  this.http1.post("https://locate-it-server.herokuapp.com/posts/add",{
 "title":this.title,
 "desc":stripedHtml,
 "ied":this.ide,
