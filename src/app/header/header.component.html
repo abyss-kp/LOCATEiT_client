@@ -10,11 +10,11 @@
       <ng-sidebar-container style="height: 100vh">
         <ng-sidebar [(opened)]="_opened" mode="push">
           <ul id='lst' class='lst'>
-            <li> <a class="closebtn" style="text-align:right" (click)="_toggleSidebar()">&times;</a></li><br>
+            <li> <a class="closebtn"  (click)="_toggleSidebar()">X</a></li><br>
             <span *ngIf="!show">
               <li><a (click)="login()">
-                  <i class="fa fa-google left"></i>
-                  Login with google</a></li>
+                  <i class="fa fa-google left">
+                  Login with google</i> </a></li>
             </span><br>
             <li><a routerLink='/posts'><i class="fa fa-book">
                 </i>Public Posts </a></li>

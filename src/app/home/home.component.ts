@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService, GoogleLoginProvider } from 'angular-6-social-login';
 import { Common } from '../commonservice';
+import { HttpClient } from "@angular/common/http";
 declare var $: any;
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ declare var $: any;
 export class HomeComponent implements OnInit {
 
   show = this.cs.isloggenIn;
-  constructor( private cs: Common, private socialAuthService: AuthService) {
+  constructor( private cs: Common, private socialAuthService: AuthService,private http:HttpClient) {
      if (localStorage.getItem('loggedIn')=="true") {
       this.show = true;
     } 
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
       //  console.log(" sign in data : ", userData);
-      console.log (userData.email);
+      //console.log (userData);
         // Now store userData
         // ...
        /*  this.cs.email=userData.email;
@@ -40,12 +41,21 @@ export class HomeComponent implements OnInit {
        localStorage.setItem('access_token',userData.token);
        localStorage.setItem('loggedIn',"true");
        localStorage.setItem('name',userData.name);
+       localStorage.setItem('image',userData.image);
     //   this.cs.googleID= localStorage.getItem('ID')
     //   this.cs.isloggenIn=true;
-       this.show=true
-       this.cs.isloggenIn=true
-        this.cs.updateData(userData)
+      console.log("img",userData.image)
       // this.refresh()
+      this.http.post("http://localhost:5000/oauth/google",{
+        "data":userData
+      })
+      .subscribe((res)=>{
+      //  console.log("response from api",res["image"])
+      console.log("img")
+      })
+      this.show=true
+      this.cs.isloggenIn=true
+       this.cs.updateData(userData)
       }
     );
   }

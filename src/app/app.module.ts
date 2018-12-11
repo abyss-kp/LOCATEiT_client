@@ -15,16 +15,19 @@ import { ShowComponent } from './show/show.component';
 import { AddComponent } from './add/add.component';
 import { EditComponent } from './edit/edit.component';
 import { FooterComponent } from './footer/footer.component'
-import { DashGuardGuard } from './dash-guard.guard'
-
-
+import { DashGuardGuard } from './dash-guard.guard';
+import { AddbtnComponent } from './addbtn/addbtn.component'
+import { CKEditorModule } from 'ngx-ckeditor';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http'; 
 //import * as $ from 'jquery';
 
 
 const routes:Routes=[
 {path:'' ,component:HomeComponent},
 {path : "dashbord" , component:DashboardComponent, canActivate:[DashGuardGuard ]},
-{path :'posts',component:PostsComponent}
+{path :'posts',component:PostsComponent},
+{path :'add',component:AddComponent},
 ]
 
 
@@ -50,12 +53,14 @@ export function getAuthServiceConfigs() {
     ShowComponent,
     AddComponent,
     EditComponent,
-    FooterComponent
+    FooterComponent,
+    AddbtnComponent
   ],
   imports: [
-    BrowserModule,RouterModule.forRoot(routes),MzButtonModule, MzInputModule,
-    MzSidenavModule ,SidebarModule,
-    SocialLoginModule,FormsModule 
+    BrowserModule,RouterModule.forRoot(routes),MzButtonModule,
+     MzInputModule, MzSidenavModule ,SidebarModule,
+    SocialLoginModule,FormsModule ,CKEditorModule,
+    HttpModule,HttpClientModule
   ],
   providers: [Common,{
     provide:AuthServiceConfig,
