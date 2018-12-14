@@ -7,6 +7,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class PostsComponent implements OnInit {
 postArray=[];
+searchText
   constructor(private http:HttpClient) {
      
     this.http.post("http://localhost:5000/find/posts",{})
