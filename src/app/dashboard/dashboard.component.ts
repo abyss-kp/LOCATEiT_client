@@ -8,6 +8,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class DashboardComponent implements OnInit {
   postArray=[];
+  searchText
 username=localStorage.getItem('name')
 id=JSON.parse(localStorage.getItem('ID'))
 constructor(private http:HttpClient) {
