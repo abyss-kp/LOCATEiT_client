@@ -19,15 +19,16 @@ import { DashGuardGuard } from './dash-guard.guard';
 import { AddbtnComponent } from './addbtn/addbtn.component'
 import { CKEditorModule } from 'ngx-ckeditor';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { PostfilterPipe } from './postfilter.pipe';
 //import * as $ from 'jquery';
 
 
 const routes:Routes=[
 {path:'' ,component:HomeComponent},
 {path : "dashbord" , component:DashboardComponent, canActivate:[DashGuardGuard ]},
-{path :'posts',component:PostsComponent},
-{path :'add',component:AddComponent},
+{path :'posts',component:PostsComponent, canActivate:[DashGuardGuard ]},
+{path :'add',component:AddComponent, canActivate:[DashGuardGuard ]},
 ]
 
 
@@ -54,7 +55,8 @@ export function getAuthServiceConfigs() {
     AddComponent,
     EditComponent,
     FooterComponent,
-    AddbtnComponent
+    AddbtnComponent,
+    PostfilterPipe
   ],
   imports: [
     BrowserModule,RouterModule.forRoot(routes),MzButtonModule,

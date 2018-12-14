@@ -8,8 +8,8 @@ import { HttpClient } from "@angular/common/http";
 export class PostsComponent implements OnInit {
 postArray=[];
   constructor(private http:HttpClient) {
-    
-    this.http.post("https://locate-it-server.herokuapp.com/find/posts",{})
+     
+    this.http.post("http://localhost:5000/find/posts",{})
     .subscribe((res)=>{
 console.log("done",res["data"]);
 var json=res['data']

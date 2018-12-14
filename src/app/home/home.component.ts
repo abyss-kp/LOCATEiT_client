@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
     //   this.cs.isloggenIn=true;
       console.log("img",userData.image)
       // this.refresh()
-      this.http.post("https://locate-it-server.herokuapp.com/oauth/google",{
+      this.http.post("http://localhost:5000/oauth/google",{
         "data":userData
       })
       .subscribe((res)=>{

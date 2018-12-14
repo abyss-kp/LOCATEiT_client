@@ -45,6 +45,7 @@ export class HeaderComponent implements OnInit {
      this.show=false;
      this.router.navigate([]);
      this.refresh();
+     this.refresh();
    }
    refresh(): void {
     window.location.reload();

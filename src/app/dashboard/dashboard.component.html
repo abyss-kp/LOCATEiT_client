@@ -2,3 +2,35 @@
 <h1>Welcome {{username }}</h1>
 <h4>Your posts are</h4>
 <app-addbtn></app-addbtn>
+
+<!-- html copied from posts -->
+
+<div class="row">
+    <input align="center" [(ngModel)]="searchText" placeholder="enter search term here" >
+    <div *ngFor="let post of postArray">
+      <div *ngFor="let arr of post | postfilter:searchText">
+    <div class="col s12 m4"> 
+      <div class="card">
+        <div class="card-image">
+          <a href="" class="btn-floating halfway-fab red">
+             <i class="fa fa-pencil"></i>
+          </a>
+        </div>
+        <div class="card-content center-align">
+          <h5>{{arr.title |uppercase}}</h5>
+          <p class="story-text">{{arr.body}}</p><br><br>
+          <div class="chip">
+            <img src={{arr.image}} alt="img">
+            {{arr.name}}
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  <div class="fixed-action-btn">
+    <a routerLink='/add' class="btn-floating btn-large red">
+    <i class="fa fa-plus"></i>
+    </a>  
+    </div>
