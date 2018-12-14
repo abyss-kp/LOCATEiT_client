@@ -46,10 +46,10 @@ export class HomeComponent implements OnInit {
     //   this.cs.isloggenIn=true;
       console.log("img",userData.image)
       // this.refresh()
-      const proxyurl = "https://fast-eyrie-39723.herokuapp.com/";
+     // const proxyurl = "https://fast-eyrie-39723.herokuapp.com/";
 const url = "https://locate-it-server.herokuapp.com/oauth/google"; // site that doesn’t send Access-Control-*
 
-      this.http.post( proxyurl+url,{
+      this.http.post( url,{
         "data":userData
       })
       .subscribe((res)=>{
