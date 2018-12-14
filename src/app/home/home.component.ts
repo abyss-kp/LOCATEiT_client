@@ -50,8 +50,8 @@ export class HomeComponent implements OnInit {
         "data":userData
       })
       .subscribe((res)=>{
-      //  console.log("response from api",res["image"])
-      console.log("img")
+        console.log("response from api",res["msg"])
+     // console.log("img")
       })
       this.show=true
       this.cs.isloggenIn=true
